@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            deleteFlag: true,
             placeDin: "inserisci un task",
             newTodo: {
                 text: "",
@@ -24,11 +25,14 @@ createApp({
             if( this.newTodo.text !== "") {
             const newTodoCopy = { ...this.newTodo }
             this.toDo.push(newTodoCopy);
-            this.newTodo.text = ""
+            this.newTodo.text = "";
+            console.log("ciao");
             
             } else {
                 alert("inserisci un task")
             }
-        },
+        }, delFunc: function (index) {
+            this.toDo.splice(index,1)
+        }
     }
 }).mount('#app')

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Toboolist</title>
+    <title>Vue Toboolist</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
@@ -32,8 +32,8 @@
             <ul class="todo_list">
                 <!-- alredy done tasks -->
                 <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
-                    <li class="article_style" v-for="curElem in toDo" @click="curElem.done = !curElem.done">&#9989; 
-                        <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span>
+                    <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done">&#9989;
+                        <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span @click="delFunc(index)">&#10060;</span>
                     </li>
                     <!-- today list -->
                 <li class="li_box">&#10148;<span class="macro_todo">OGGI</span>
