@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            placeDin: "inserisci un task",
             newTodo: {
                 text: "",
                 done: false
@@ -20,9 +21,14 @@ createApp({
         }
     }, methods: {
         addToDo: function () {
+            if( this.newTodo.text !== "") {
             const newTodoCopy = { ...this.newTodo }
-            console.log(newTodoCopy);
-            this.toDo.push(newTodoCopy)
-        }
+            this.toDo.push(newTodoCopy);
+            this.newTodo.text = ""
+            
+            } else {
+                alert("inserisci un task")
+            }
+        },
     }
 }).mount('#app')
