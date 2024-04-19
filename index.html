@@ -32,8 +32,10 @@
             <ul class="todo_list">
                 <!-- alredy done tasks -->
                 <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
-                <li class="article_style">&#9989; <span class="line_thr">Quarterly Newsletter</span> <span
-                        class="edit_style line_thr icon_style">Editorial</span></li>
+                    <li class="article_style" v-for="curElem in toDo">&#9989; 
+                        <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> 
+                        <span class="edit_style line_thr icon_style">Editorial</span>
+                    </li>
                     <!-- today list -->
                 <li class="li_box">&#10148;<span class="macro_todo">OGGI</span>
                 <li class="article_style">&#9989; <span class="line_thr">Recruiting Blog post</span> <span
