@@ -19,6 +19,10 @@ createApp({
             ]
         }
     }, methods: {
-
+        addToDo: function () {
+            const newTodoCopy = { ...this.newTodo }
+            console.log(newTodoCopy);
+            this.toDo.push(newTodoCopy)
+        }
     }
 }).mount('#app')

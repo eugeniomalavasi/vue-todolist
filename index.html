@@ -23,8 +23,8 @@
         <main class="content">
             <!-- search bar -->
             <div class="search_container">
-                <input type="search" class="search_input round_corn" placeholder="Fare la spesa...">
-                <button class="button_style round_corn">Add a task</button>
+                <input type="search" class="search_input round_corn" placeholder="Todo input" v-model="newTodo.text">
+                <button class="button_style round_corn" @click="addToDo">Add a task</button>
             </div>
             <!-- /search bar -->
             <hr>
@@ -33,8 +33,7 @@
                 <!-- alredy done tasks -->
                 <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
                     <li class="article_style" v-for="curElem in toDo">&#9989; 
-                        <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> 
-                        <span class="edit_style line_thr icon_style">Editorial</span>
+                        <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span>
                     </li>
                     <!-- today list -->
                 <li class="li_box">&#10148;<span class="macro_todo">OGGI</span>
