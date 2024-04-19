@@ -1,0 +1,123 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+.head_container {
+    background-color: rgb(237 242 247);
+}
+.main_header {
+    margin: auto;
+}
+
+.main_header .logo_img {
+    margin: auto;
+    display: block;
+}
+
+/* MAIN SECTION */
+.main_container {
+    width: 60%;
+    background-color: rgb(237 242 247);
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 5px 5px 0 0;
+}
+
+/* SEARCH BAR */
+.search_container {
+    padding: 20px;
+    text-align: center; 
+}
+
+.button_style {
+    background-color: rgb(20 170 245);
+    color: white;
+    padding: 10px;
+    border: 1px solid lightgray;
+    font-size: 15px;
+}
+
+.search_input {
+    padding: 10px;
+}
+
+.round_corn {
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    font-size: 15px;
+}
+
+hr {
+    border-top: 2px solid white;
+}
+
+/* TODO LIST */
+.todo_list {
+    padding: 20px;
+    list-style-type: none;
+    color: rgb(70 73 83);
+}
+
+.macro_todo {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(70 73 83);
+}
+
+.article_style {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    margin-bottom: 5px;
+}
+/* ICON STYLE */
+.edit_style {
+    background-color:rgb(20 170 245);
+}
+
+.q1_clr {
+    background-color: rgb(171 93 230);
+}
+
+.recruiting_clr {
+    background-color: rgb(44 198 171);
+}
+
+.recruiting_clr {
+    background-color: rgb(44 198 171);
+}
+.mobile_clr {
+    background-color: orange;
+}
+
+.website_clr {
+    background-color: rgb(236 74 157);
+}
+
+.sales_clr {
+    background-color: rgb(163 209 22);
+} 
+.icon_style {
+    color: white;
+    padding: 5px;
+    border-radius: 15px;
+}
+/* /END ICON STYLE */
+
+.line_thr {
+    text-decoration: line-through;
+}
+
+.li_box {
+    padding: 20px 0 0 0;
+    margin-bottom: 10px;
+}
