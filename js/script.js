@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
             deleteFlag: true,
+            icon: "fa-solid fa-square-check",
+            redIcon: "fa-solid fa-square-minus",
             placeDin: "inserisci un task",
             newTodo: {
                 text: "",
@@ -26,13 +28,17 @@ createApp({
             const newTodoCopy = { ...this.newTodo }
             this.toDo.push(newTodoCopy);
             this.newTodo.text = "";
-            console.log("ciao");
             
             } else {
                 alert("inserisci un task")
+
             }
         }, delFunc: function (index) {
             this.toDo.splice(index,1)
+        }, iconChange: function (index) {
+            if(this.toDo[index].done) {
+                this.icon = this.redIcon;
+            }
         }
     }
 }).mount('#app')
