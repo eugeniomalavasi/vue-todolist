@@ -34,7 +34,7 @@
                 <!-- alredy done tasks -->
                 <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
                     <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done; iconChange(curElem)"> 
-                        <i :class="icon"></i> <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span @click="delFunc(index)">&#10060;</span>
+                        <i :class="icon"></i> <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span @click="delFunc(index)" class="delete_btn">&#10060;</span>
                     </li>
 
 
