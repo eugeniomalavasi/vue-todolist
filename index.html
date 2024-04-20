@@ -24,8 +24,8 @@
         <main class="content">
             <!-- search bar -->
             <div class="search_container">
-                <input type="search" class="search_input round_corn" :placeholder="placeDin" v-model="newTodo.text">
-                <button class="button_style round_corn" @click="addToDo" @keyup.enter="addToDo">Add a task</button>
+                <input type="search" class="search_input round_corn" :placeholder="placeDin" v-model="newTodo.text" @keyup.enter="addToDo">
+                <button class="button_style round_corn" @click="addToDo">Add a task</button>
             </div>
             <!-- /search bar -->
             <hr>
@@ -33,7 +33,7 @@
             <ul class="todo_list">
                 <!-- alredy done tasks -->
                 <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
-                    <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done"> 
+                    <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done; iconChange(curElem)"> 
                         <i :class="icon"></i> <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span @click="delFunc(index)">&#10060;</span>
                     </li>
 
