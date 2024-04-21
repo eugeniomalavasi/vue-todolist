@@ -39,8 +39,13 @@ createApp({
             } else {
                 this.icon = "fa-solid fa-square-check";
             }
-        }, check: function () {
-            console.log("enter");
         }
+    }, created() {
+        let arrayStringed = JSON.stringify(this.toDo)
+        localStorage.setItem("toDoArray", arrayStringed)
+        console.log(arrayStringed); 
+        let retrievedString = localStorage.getItem("toDoArray")
+        let localStoredArray = JSON.parse(retrievedString)  
+        console.log(localStoredArray);
     }
 }).mount('#app')
