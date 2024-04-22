@@ -72,6 +72,9 @@ hr {
     color: rgb(70 73 83);
 }
 
+.delete_btn {
+    cursor: pointer;    
+}
 .article_style {
     background-color: white;
     padding: 10px;

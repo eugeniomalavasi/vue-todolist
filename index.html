@@ -22,24 +22,21 @@
             <!-- /header section -->
         </div>
 
-        <div class="main_container">
-            <main class="content">
-                <!-- search bar -->
-                <div class="search_container">
-                    <input type="search" class="search_input round_corn" :placeholder="placeDin" v-model.trim="newTodo.text">
-                    <button class="button_style round_corn" @click="addToDo" @keyup.enter="addToDo">Add a task</button>
-                </div>
-                <!-- /search bar -->
-                <hr>
-                <!-- navigation list-->
-                <ul class="todo_list">
-                    <!-- alredy done tasks -->
-                    <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
-                    <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done">
-                        <i class="fa-solid fa-square-minus" v-if="curElem.done"></i>
-                        <i class="fa-solid fa-square-check" v-else></i>  <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span
-                            class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span
-                            @click="delFunc(index)">&#10060;</span>
+    <div class="main_container">
+        <main class="content">
+            <!-- search bar -->
+            <div class="search_container">
+                <input type="search" class="search_input round_corn" :placeholder="placeDin" v-model="newTodo.text">
+                <button class="button_style round_corn" @click="addToDo" @keyup.enter="addToDo">Add a task</button>
+            </div>
+            <!-- /search bar -->
+            <hr>
+            <!-- navigation list-->
+            <ul class="todo_list">
+                <!-- alredy done tasks -->
+                <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
+                    <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done"> 
+                        <i :class="icon"></i> <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span @click="delFunc(index)">&#10060;</span>
                     </li>
 
 

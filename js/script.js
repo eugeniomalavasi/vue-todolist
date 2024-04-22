@@ -24,17 +24,19 @@ createApp({
         }
     }, methods: {
         addToDo: function () {
-            if( this.newTodo.text !== "") {
-            const newTodoCopy = { ...this.newTodo }
-            this.toDo.push(newTodoCopy);
-            this.newTodo.text = "";
-            
+            if (this.newTodo.text !== "") {
+                const newTodoCopy = { ...this.newTodo }
+                this.toDo.push(newTodoCopy);
+                this.newTodo.text = "";
             } else {
-                alert("inserisci un task")
-
+                alert("inserisci un task");
             }
         }, delFunc: function (index) {
             this.toDo.splice(index,1)
-        },
+        }, iconChange: function (index) {
+            if(this.toDo[index].done) {
+                this.icon = this.redIcon;
+            }
+        }
     }
 }).mount('#app')
