@@ -6,63 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Vue Toboolist</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
     <div id="app">
-    <div class="head_container">
-        <!-- header section -->
-        <header class="main_header">
-            <img class="logo_img" src="./img/logo.png" alt="boolean logo">
-        </header>
-        <!-- /header section -->
-    </div>
+        <div class="head_container">
+            <!-- header section -->
+            <header class="main_header">
+                <img class="logo_img" src="./img/logo.png" alt="boolean logo">
+            </header>
+            <!-- /header section -->
+        </div>
 
-    <div class="main_container">
-        <main class="content">
-            <!-- search bar -->
-            <div class="search_container">
-                <input type="search" class="search_input round_corn" :placeholder="placeDin" v-model="newTodo.text">
-                <button class="button_style round_corn" @click="addToDo" @keyup.enter="addToDo">Add a task</button>
-            </div>
-            <!-- /search bar -->
-            <hr>
-            <!-- navigation list-->
-            <ul class="todo_list">
-                <!-- alredy done tasks -->
-                <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
-                    <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done"> 
-                        <i :class="icon"></i> <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span @click="delFunc(index)">&#10060;</span>
+        <div class="main_container">
+            <main class="content">
+                <!-- search bar -->
+                <div class="search_container">
+                    <input type="search" class="search_input round_corn" :placeholder="placeDin" v-model.trim="newTodo.text">
+                    <button class="button_style round_corn" @click="addToDo" @keyup.enter="addToDo">Add a task</button>
+                </div>
+                <!-- /search bar -->
+                <hr>
+                <!-- navigation list-->
+                <ul class="todo_list">
+                    <!-- alredy done tasks -->
+                    <li class="li_box">&#10148;<span class="macro_todo">TASK PRECEDENTI</span>
+                    <li class="article_style" v-for="(curElem, index) in toDo" @click="curElem.done = !curElem.done">
+                        <i class="fa-solid fa-square-minus" v-if="curElem.done"></i>
+                        <i class="fa-solid fa-square-check" v-else></i>  <span :class="{'line_thr' : curElem.done}">{{ curElem.text }}</span> <span
+                            class="edit_style icon_style" :class="{'line_thr' : curElem.done}">Editorial</span> <span
+                            @click="delFunc(index)">&#10060;</span>
                     </li>
 
 
                     <!-- today list -->
-                <li class="li_box">&#10148;<span class="macro_todo">OGGI</span>
-                <li class="article_style">&#9989; <span class="line_thr">Recruiting Blog post</span> <span
-                        class="edit_style line_thr icon_style">Editorial</span></li>
-                <li class="article_style">&#9989; <span class="line_thr">Mobile app launch</span> <span
-                        class="q1_clr line_thr icon_style">Q1 Goals</span></li>
-                <li class="article_style">&#10060; <span>Interview Pino Costantino</span> <span
-                        class="recruiting_clr icon_style">Recruiting</span></li>
-                <li class="article_style">&#9989; <span class="line_thr">Pray the Sun</span> <span
-                        class="mobile_clr line_thr icon_style">Mobile</span></li>
+                    <li class="li_box">&#10148;<span class="macro_todo">OGGI</span>
+                    <li class="article_style">&#9989; <span class="line_thr">Recruiting Blog post</span> <span
+                            class="edit_style line_thr icon_style">Editorial</span></li>
+                    <li class="article_style">&#9989; <span class="line_thr">Mobile app launch</span> <span
+                            class="q1_clr line_thr icon_style">Q1 Goals</span></li>
+                    <li class="article_style">&#10060; <span>Interview Pino Costantino</span> <span
+                            class="recruiting_clr icon_style">Recruiting</span></li>
+                    <li class="article_style">&#9989; <span class="line_thr">Pray the Sun</span> <span
+                            class="mobile_clr line_thr icon_style">Mobile</span></li>
                     <!-- next day list -->
-                <li class="li_box">&#10148;<span class="macro_todo">PROSSIMI GIORNI</span>
-                <li class="article_style">&#10060; <span class="line_thr">Meeting with Alex</span> </li>
-                <li class="article_style">&#9989; <span class="line_thr">Refresh everything</span> <span
-                        class="website_clr line_thr icon_style">Website</span></li>
-                <li class="article_style">&#9989; <span class="line_thr">Go climb a wall</span> <span
-                        class="sales_clr line_thr icon_style">Sales</span></li>
-                <li class="article_style">&#9989; <span class="line_thr">Review a book you haven't</span> <span
-                        class="edit_style line_thr icon_style">Editorial</span></li>
-            </ul>
-            <!-- /navigation list-->
-        </main>
+                    <li class="li_box">&#10148;<span class="macro_todo">PROSSIMI GIORNI</span>
+                    <li class="article_style">&#10060; <span class="line_thr">Meeting with Alex</span> </li>
+                    <li class="article_style">&#9989; <span class="line_thr">Refresh everything</span> <span
+                            class="website_clr line_thr icon_style">Website</span></li>
+                    <li class="article_style">&#9989; <span class="line_thr">Go climb a wall</span> <span
+                            class="sales_clr line_thr icon_style">Sales</span></li>
+                    <li class="article_style">&#9989; <span class="line_thr">Review a book you haven't</span> <span
+                            class="edit_style line_thr icon_style">Editorial</span></li>
+                </ul>
+                <!-- /navigation list-->
+            </main>
+        </div>
     </div>
-    </div>
-<script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
