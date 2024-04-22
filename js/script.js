@@ -33,10 +33,6 @@ createApp({
             }
         }, delFunc: function (index) {
             this.toDo.splice(index,1)
-        }, iconChange: function (index) {
-            if(this.toDo[index].done) {
-                this.icon = this.redIcon;
-            }
-        }
+        },
     }
 }).mount('#app')
